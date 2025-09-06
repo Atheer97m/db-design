@@ -1,0 +1,25 @@
+<sql>
+  <table name="users">
+    <row name="id" type="INT" notnull="true" autoincrement="true" primarykey="true"/>
+    <row name="first_name" type="CHAR(100)" notnull="false"/>
+    <row name="last_name" type="CHAR(100)" notnull="false"/>
+    <row name="age" type="INT" notnull="false"/>
+    <row name="email" type="CHAR(255)" notnull="false"/>
+  </table>
+
+  <table name="movies">
+    <row name="id" type="INT" notnull="true" autoincrement="true" primarykey="true"/>
+    <row name="title" type="CHAR(200)" notnull="false"/>
+    <row name="release_year" type="INT" notnull="false"/>
+    <row name="rating" type="FLOAT" notnull="false"/>
+  </table>
+
+  <table name="views">
+    <row name="id" type="INT" notnull="true" autoincrement="true" primarykey="true"/>
+    <row name="user_id" type="INT" notnull="true"/>
+    <row name="movie_id" type="INT" notnull="true"/>
+    <row name="date" type="DATE" notnull="false"/>
+    <relation table="users" on="user_id" references="id"/>
+    <relation table="movies" on="movie_id" references="id"/>
+  </table>
+</sql>
