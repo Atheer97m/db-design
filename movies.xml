@@ -1,26 +1,74 @@
 <sql>
   <table name="users">
-    <row name="id" type="INT" notnull="true" autoincrement="true" primarykey="true"/>
-    <row name="first_name" type="CHAR(100)" notnull="true"/>
-    <row name="last_name" type="CHAR(100)" notnull="true"/>
-    <row name="age" type="INT" notnull="false"/>
-    <row name="email" type="CHAR(255)" notnull="false"/>
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="first_name" null="1" autoincrement="0">
+      <datatype>VARCHAR</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="last_name" null="1" autoincrement="0">
+      <datatype>VARCHAR</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="age" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="email" null="1" autoincrement="0">
+      <datatype>VARCHAR</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
   </table>
 
   <table name="movies">
-    <row name="id" type="INT" notnull="true" autoincrement="true" primarykey="true"/>
-    <row name="title" type="CHAR(200)" notnull="true"/>
-    <row name="release_year" type="INT" notnull="false"/>
-    <row name="rating" type="FLOAT" notnull="false"/>
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="title" null="1" autoincrement="0">
+      <datatype>VARCHAR</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="release_year" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="rating" null="1" autoincrement="0">
+      <datatype>FLOAT</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
   </table>
 
   <table name="views">
-    <row name="date" type="DATE" notnull="false"/>
-    <row name="id" type="INT" notnull="true" autoincrement="true" primarykey="true"/>
-    <row name="movie_id" type="INT" notnull="true"/>
-    <row name="user_id" type="INT" notnull="true"/>
-    <relation table="users" on="user_id" references="id"/>
-    <relation table="movies" on="movie_id" references="id"/>
+    <row name="date" null="1" autoincrement="0">
+      <datatype>DATE</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="movie_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="movies" row="id"/>
+    </row>
+    <row name="user_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="users" row="id"/>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
   </table>
 </sql>
 
